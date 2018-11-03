@@ -1,4 +1,6 @@
 <?php
+ini_set('error_reporting', E_ALL);
+
 header('Content-type: text/html; charset=utf-8');
 
 session_start();
@@ -10,7 +12,7 @@ if (count($_POST) > 0) {
     $password = $_POST['password'];
 
     if (auth($login, $password) === true) {
-        header('Location: /Calculator/Calculator.php');
+        header('Location: /Calculator/calculator.php');
         exit();
     } else {
         session_destroy();
@@ -22,7 +24,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
     $login = $_SESSION['login'];
     $password = $_SESSION['password'];
     if (auth($login, $password) === true) {
-        header('Location: /Calculator/Calculator.php');
+        header('Location: /Calculator/calculator.php');
         exit();
     }
 }

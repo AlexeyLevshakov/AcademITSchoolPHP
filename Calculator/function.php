@@ -2,12 +2,12 @@
 
 function auth($login, $password)
 {
-    $correct_login = 'alexey';
-    $correct_password = '1234';
+    $correctLogin = 'alexey';
+    $correctPassword = '1234';
 
-    if ($login == $correct_login && $password == $correct_password) {
-        $_SESSION['login'] = $correct_login;
-        $_SESSION['password'] = $correct_password;
+    if ($login == $correctLogin && $password == $correctPassword) {
+        $_SESSION['login'] = $correctLogin;
+        $_SESSION['password'] = $correctPassword;
         return true;
     };
 
