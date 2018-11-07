@@ -1,12 +1,8 @@
 <?php
 ini_set('error_reporting', E_ALL);
-
 header('Content-type: text/html; charset=utf-8');
-
 require_once __DIR__ . '/function.php';
-
 session_start();
-
 if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
     $login = $_SESSION['login'];
     $password = $_SESSION['password'];
@@ -18,13 +14,11 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
     header('Location: /calculator/index.php');
     exit();
 }
-
 if (count($_POST) == 0) {
     $_POST['firstNumber'] = 0;
     $_POST['secondNumber'] = 0;
     $_POST['operation'] = 'Выполнен вход на страницу';
 }
-
 switch ($_POST['operation']) {
     case 'Сложение':
         $result = $_POST['firstNumber'] + $_POST['secondNumber'];
@@ -51,7 +45,6 @@ switch ($_POST['operation']) {
         $result = 0;
         $text = 'Выполнен вход на страницу' . PHP_EOL;
 }
-
 $fileName = __DIR__ . '/memory.txt';
 file_put_contents($fileName, $text, FILE_APPEND);
 ?>
@@ -84,5 +77,3 @@ file_put_contents($fileName, $text, FILE_APPEND);
 <br/>
 <br/>
 <a href="/Calculator/logout.php">Выйти</a>
-
-
