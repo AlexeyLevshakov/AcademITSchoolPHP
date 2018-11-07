@@ -71,10 +71,10 @@ file_put_contents($fileName, $text, FILE_APPEND);
     <br/>
     <label>Выберите арифметическое действие:</label>
     <br/>
-    <label><input type="radio" name="operation" value="Сложение" checked>Сложение</label>
-    <label><input type="radio" name="operation" value="Вычитание">Вычитание</label>
-    <label><input type="radio" name="operation" value="Умножение">Умножение</label>
-    <label><input type="radio" name="operation" value="Деление">Деление</label>
+    <label><input type="radio" name="operation" value="Сложение" <?if($_POST['operation'] == 'Сложение'){echo 'checked';}?>>Сложение</label>
+    <label><input type="radio" name="operation" value="Вычитание" <?if($_POST['operation'] == 'Вычитание'){echo 'checked';}?>>Вычитание</label>
+    <label><input type="radio" name="operation" value="Умножение" <?if($_POST['operation'] == 'Умножение'){echo 'checked';}?>>Умножение</label>
+    <label><input type="radio" name="operation" value="Деление" <?if($_POST['operation'] == 'Деление'){echo 'checked';}?>>Деление</label>
     <br>
     <br>
     <input type="submit" value="Вычислить">
