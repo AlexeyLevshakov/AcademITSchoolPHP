@@ -30,7 +30,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
 }
 ?>
 
-<form method="post" action="index.php">
+<form method="post" action="/Calculator/index.php">
     <table>
         <tr>
             <td><label for="login">Введите логин</label></td>

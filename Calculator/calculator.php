@@ -45,7 +45,9 @@ if (isset($_POST['operation'])) {
     }
 
     $fileName = __DIR__ . '/memory.txt';
-    file_put_contents($fileName, $text, FILE_APPEND);
+    if(isset($text)) {
+        file_put_contents($fileName, $text, FILE_APPEND);
+    }
 }
 ?>
 
@@ -54,14 +56,14 @@ if (isset($_POST['operation'])) {
         <tr>
             <td><label for="firstNumber">Введите первое число</label></td>
             <td><input id="firstNumber" type="text" name="firstNumber"
-                       value="<? if (isset($_POST['firstNumber'])) {
+                       value="<?php if (isset($_POST['firstNumber'])) {
                            echo $_POST['firstNumber'];
                        } ?>"></td>
         </tr>
         <tr>
             <td><label for="secondNumber">Введите второе число</label></td>
             <td><input id="secondNumber" type="text" name="secondNumber"
-                       value="<? if (isset($_POST['secondNumber'])) {
+                       value="<?php if (isset($_POST['secondNumber'])) {
                            echo $_POST['secondNumber'];
                        } ?>"></td>
         </tr>
@@ -70,22 +72,22 @@ if (isset($_POST['operation'])) {
     <label>Выберите арифметическое действие:</label>
     <br/>
     <label><input type="radio" name="operation" value="Сложение"
-            <? if (isset($_POST['operation']) && $_POST['operation'] == 'Сложение') {
+            <?php if (isset($_POST['operation']) && $_POST['operation'] == 'Сложение') {
                 echo 'checked';
             } ?>
         >Сложение</label>
     <label><input type="radio" name="operation" value="Вычитание"
-            <? if (isset($_POST['operation']) && $_POST['operation'] == 'Вычитание') {
+            <?php if (isset($_POST['operation']) && $_POST['operation'] == 'Вычитание') {
                 echo 'checked';
             } ?>
         >Вычитание</label>
     <label><input type="radio" name="operation" value="Умножение"
-            <? if (isset($_POST['operation']) && $_POST['operation'] == 'Умножение') {
+            <?php if (isset($_POST['operation']) && $_POST['operation'] == 'Умножение') {
                 echo 'checked';
             } ?>
         >Умножение</label>
     <label><input type="radio" name="operation" value="Деление"
-            <? if (isset($_POST['operation']) && $_POST['operation'] == 'Деление') {
+            <?php if (isset($_POST['operation']) && $_POST['operation'] == 'Деление') {
                 echo 'checked';
             } ?>
         >Деление</label>
@@ -94,7 +96,7 @@ if (isset($_POST['operation'])) {
     <input type="submit" value="Вычислить">
 </form>
 
-<p>Результат: <? if (isset($result)) {
+<p>Результат: <?php if (isset($result)) {
         echo $result;
     } ?></p>
 <br/>
